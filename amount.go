@@ -2,7 +2,7 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
-package btcutil
+package lbcutil
 
 import (
 	"errors"
@@ -29,23 +29,23 @@ const (
 
 // String returns the unit as a string.  For recognized units, the SI
 // prefix is used, or "Satoshi" for the base unit.  For all unrecognized
-// units, "1eN BTC" is returned, where N is the AmountUnit.
+// units, "1eN LBC" is returned, where N is the AmountUnit.
 func (u AmountUnit) String() string {
 	switch u {
 	case AmountMegaBTC:
-		return "MBTC"
+		return "MLBC"
 	case AmountKiloBTC:
-		return "kBTC"
+		return "kLBC"
 	case AmountBTC:
-		return "BTC"
+		return "LBC"
 	case AmountMilliBTC:
-		return "mBTC"
+		return "mLBC"
 	case AmountMicroBTC:
-		return "μBTC"
+		return "μLBC"
 	case AmountSatoshi:
 		return "Satoshi"
 	default:
-		return "1e" + strconv.FormatInt(int64(u), 10) + " BTC"
+		return "1e" + strconv.FormatInt(int64(u), 10) + " LBC"
 	}
 }
 
@@ -72,7 +72,7 @@ func round(f float64) Amount {
 // NewAmount is for specifically for converting BTC to Satoshi.
 // For creating a new Amount with an int64 value which denotes a quantity of Satoshi,
 // do a simple type conversion from type int64 to Amount.
-// See GoDoc for example: http://godoc.org/github.com/btcsuite/btcutil#example-Amount
+// See GoDoc for example: http://godoc.org/github.com/lbryio/lbcutil#example-Amount
 func NewAmount(f float64) (Amount, error) {
 	// The amount is only considered invalid if it cannot be represented
 	// as an integer type.  This may happen if f is NaN or +-Infinity.
