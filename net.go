@@ -4,7 +4,7 @@
 
 // +build !appengine
 
-package btcutil
+package lbcutil
 
 import (
 	"net"

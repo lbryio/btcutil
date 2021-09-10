@@ -2,13 +2,13 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
-package btcutil_test
+package lbcutil_test
 
 import (
 	"math"
 	"testing"
 
-	. "github.com/btcsuite/btcutil"
+	. "github.com/lbryio/lbcutil"
 )
 
 func TestAmountCreation(t *testing.T) {
@@ -119,40 +119,40 @@ func TestAmountUnitConversions(t *testing.T) {
 		s         string
 	}{
 		{
-			name:      "MBTC",
+			name:      "MLBC",
 			amount:    MaxSatoshi,
 			unit:      AmountMegaBTC,
 			converted: 21,
-			s:         "21 MBTC",
+			s:         "21 MLBC",
 		},
 		{
-			name:      "kBTC",
+			name:      "kLBC",
 			amount:    44433322211100,
 			unit:      AmountKiloBTC,
 			converted: 444.33322211100,
-			s:         "444.333222111 kBTC",
+			s:         "444.333222111 kLBC",
 		},
 		{
-			name:      "BTC",
+			name:      "LBC",
 			amount:    44433322211100,
 			unit:      AmountBTC,
 			converted: 444333.22211100,
-			s:         "444333.222111 BTC",
+			s:         "444333.222111 LBC",
 		},
 		{
-			name:      "mBTC",
+			name:      "mLBC",
 			amount:    44433322211100,
 			unit:      AmountMilliBTC,
 			converted: 444333222.11100,
-			s:         "444333222.111 mBTC",
+			s:         "444333222.111 mLBC",
 		},
 		{
 
-			name:      "μBTC",
+			name:      "μLBC",
 			amount:    44433322211100,
 			unit:      AmountMicroBTC,
 			converted: 444333222111.00,
-			s:         "444333222111 μBTC",
+			s:         "444333222111 μLBC",
 		},
 		{
 
@@ -168,7 +168,7 @@ func TestAmountUnitConversions(t *testing.T) {
 			amount:    44433322211100,
 			unit:      AmountUnit(-1),
 			converted: 4443332.2211100,
-			s:         "4443332.22111 1e-1 BTC",
+			s:         "4443332.22111 1e-1 LBC",
 		},
 	}
 

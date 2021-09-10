@@ -18,11 +18,11 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/base58"
+	"github.com/lbryio/lbcd/btcec"
+	"github.com/lbryio/lbcd/chaincfg"
+	"github.com/lbryio/lbcd/chaincfg/chainhash"
+	"github.com/lbryio/lbcutil"
+	"github.com/lbryio/lbcutil/base58"
 )
 
 const (
@@ -346,7 +346,7 @@ func (k *ExtendedKey) Derive(i uint32) (*ExtendedKey, error) {
 
 	// The fingerprint of the parent for the derived child is the first 4
 	// bytes of the RIPEMD160(SHA256(parentPubKey)).
-	parentFP := btcutil.Hash160(k.pubKeyBytes())[:4]
+	parentFP := lbcutil.Hash160(k.pubKeyBytes())[:4]
 	return NewExtendedKey(k.version, childKey, childChainCode, parentFP,
 		k.depth+1, i, isPrivate), nil
 }
@@ -415,7 +415,7 @@ func (k *ExtendedKey) DeriveNonStandard(i uint32) (*ExtendedKey, error) {
 		childKey = pk.SerializeCompressed()
 	}
 
-	parentFP := btcutil.Hash160(k.pubKeyBytes())[:4]
+	parentFP := lbcutil.Hash160(k.pubKeyBytes())[:4]
 	return NewExtendedKey(k.version, childKey, childChainCode, parentFP,
 		k.depth+1, i, isPrivate), nil
 }
@@ -506,9 +506,9 @@ func (k *ExtendedKey) ECPrivKey() (*btcec.PrivateKey, error) {
 
 // Address converts the extended key to a standard bitcoin pay-to-pubkey-hash
 // address for the passed network.
-func (k *ExtendedKey) Address(net *chaincfg.Params) (*btcutil.AddressPubKeyHash, error) {
-	pkHash := btcutil.Hash160(k.pubKeyBytes())
-	return btcutil.NewAddressPubKeyHash(pkHash, net)
+func (k *ExtendedKey) Address(net *chaincfg.Params) (*lbcutil.AddressPubKeyHash, error) {
+	pkHash := lbcutil.Hash160(k.pubKeyBytes())
+	return lbcutil.NewAddressPubKeyHash(pkHash, net)
 }
 
 // paddedAppend appends the src byte slice to dst, returning the new slice.

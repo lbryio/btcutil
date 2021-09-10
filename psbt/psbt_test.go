@@ -11,10 +11,10 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/txscript"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/lbryio/lbcd/chaincfg/chainhash"
+	"github.com/lbryio/lbcd/txscript"
+	"github.com/lbryio/lbcd/wire"
+	"github.com/lbryio/lbcutil"
 	"github.com/davecgh/go-spew/spew"
 )
 
@@ -1369,7 +1369,7 @@ func TestWitnessForNonWitnessUtxo(t *testing.T) {
 			}},
 			TxOut: []*wire.TxOut{{
 				PkScript: outPkScript,
-				Value:    1.9 * btcutil.SatoshiPerBitcoin,
+				Value:    1.9 * lbcutil.SatoshiPerBitcoin,
 			}},
 		},
 		Inputs:  []PInput{{}},

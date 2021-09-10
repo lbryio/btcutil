@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"sort"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/lbryio/lbcd/chaincfg/chainhash"
 )
 
 // InPlaceSort modifies the passed packet's wire TX inputs and outputs to be
@@ -16,7 +16,7 @@ import (
 // (partial) witness data since it will mutate the transaction if it's not
 // already sorted. This can cause issues if you mutate a tx in a block, for
 // example, which would invalidate the block. It could also cause cached hashes,
-// such as in a btcutil.Tx to become invalidated.
+// such as in a lbcutil.Tx to become invalidated.
 //
 // The function should only be used if the caller is creating the transaction or
 // is otherwise 100% positive mutating will not cause adverse affects due to
