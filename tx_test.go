@@ -10,9 +10,9 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/lbryio/lbcd/chaincfg/chainhash"
 	"github.com/lbryio/lbcutil"
-	"github.com/davecgh/go-spew/spew"
 )
 
 // TestTx tests the API for Tx.

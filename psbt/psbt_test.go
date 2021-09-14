@@ -11,11 +11,11 @@ import (
 	"encoding/hex"
 	"testing"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/lbryio/lbcd/chaincfg/chainhash"
 	"github.com/lbryio/lbcd/txscript"
 	"github.com/lbryio/lbcd/wire"
 	"github.com/lbryio/lbcutil"
-	"github.com/davecgh/go-spew/spew"
 )
 
 // Test vectors from:
