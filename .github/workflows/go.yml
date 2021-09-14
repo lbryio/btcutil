@@ -12,15 +12,17 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
+
       - name: Check out source
         uses: actions/checkout@v2
-      - name: Install Linters
-        run: "curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.31.0"
+
       - name: Build
         run: go build ./...
+
       - name: Test
         run: |
           sh ./goclean.sh
+
       - name: Send lbcutil coverage
         uses: shogo82148/actions-goveralls@v1
         with:

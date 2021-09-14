@@ -32,15 +32,4 @@ for i in $(find . -name go.mod -type f -print); do
     go tool cover -func profile.cov
   )
 
-  # check linters
-  (cd $MODNAME && \
-    go mod download && \
-    golangci-lint run --deadline=10m --disable-all \
-      --enable=gofmt \
-      --enable=goimports \
-      --enable=golint \
-      --enable=govet \
-      --enable=gosimple \
-      --enable=unconvert
-  )
 done
