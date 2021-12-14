@@ -82,7 +82,7 @@ func NewAmount(f float64) (Amount, error) {
 	case math.IsInf(f, 1):
 		fallthrough
 	case math.IsInf(f, -1):
-		return 0, errors.New("invalid bitcoin amount")
+		return 0, errors.New("invalid coin amount")
 	}
 
 	return round(f * SatoshiPerBitcoin), nil
@@ -101,7 +101,7 @@ func (a Amount) ToBTC() float64 {
 
 // Format formats a monetary amount counted in bitcoin base units as a
 // string for a given unit.  The conversion will succeed for any unit,
-// however, known units will be formated with an appended label describing
+// however, known units will be formatted with an appended label describing
 // the units with SI notation, or "Satoshi" for the base unit.
 func (a Amount) Format(u AmountUnit) string {
 	units := " " + u.String()
