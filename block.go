@@ -69,6 +69,13 @@ func (b *Block) Bytes() ([]byte, error) {
 	return serializedBlock, nil
 }
 
+// Bytes sets the serialized bytes for the Block.  This is equivalent to
+// calling Serialize on the underlying wire.MsgBlock, however it caches the
+// result so subsequent calls are more efficient.
+func (b *Block) SetBytes(data []byte) {
+	b.serializedBlock = data
+}
+
 // BytesNoWitness returns the serialized bytes for the block with transactions
 // encoded without any witness data.
 func (b *Block) BytesNoWitness() ([]byte, error) {
@@ -88,6 +95,12 @@ func (b *Block) BytesNoWitness() ([]byte, error) {
 	// Cache the serialized bytes and return them.
 	b.serializedBlockNoWitness = serializedBlock
 	return serializedBlock, nil
+}
+
+// SetBytesNoWitness sets the serialized bytes for the block with transactions
+// encoded without any witness data.
+func (b *Block) SetBytesNoWitness(data []byte) {
+	b.serializedBlockNoWitness = data
 }
 
 // Hash returns the block identifier hash for the Block.  This is equivalent to
