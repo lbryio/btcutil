@@ -8,13 +8,13 @@ GO_BIN := ${GOPATH}/bin
 LINT_BIN := $(GO_BIN)/golangci-lint
 GOACC_BIN := $(GO_BIN)/go-acc
 
-LINT_COMMIT := v1.18.0
+LINT_COMMIT := v1.19.0
 GOACC_COMMIT := 80342ae2e0fcf265e99e76bcc4efd022c7c3811b
 
 DEPGET := cd /tmp && GO111MODULE=on go get -v
 GOBUILD := GO111MODULE=on go build -v
 GOINSTALL := GO111MODULE=on go install -v
-GOTEST := GO111MODULE=on go test 
+GOTEST := GO111MODULE=on go test
 
 GOFILES_NOVENDOR = $(shell find . -type f -name '*.go' -not -path "./vendor/*")
 

@@ -1,6 +1,6 @@
 module github.com/lbryio/lbcutil
 
-go 1.17
+go 1.19
 
 require (
 	github.com/aead/siphash v1.0.1
